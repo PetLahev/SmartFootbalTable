@@ -7874,6 +7874,16 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <sheets>
 <sheet>
 <plain>
+<text x="62.484" y="32.004" size="1.778" layer="91">CLK</text>
+<text x="62.484" y="34.798" size="1.778" layer="91">DIO</text>
+<text x="62.484" y="39.878" size="1.778" layer="91">DOWN</text>
+<text x="62.484" y="37.338" size="1.778" layer="91">UP</text>
+<text x="62.484" y="75.438" size="1.778" layer="91">DOWN</text>
+<text x="62.484" y="72.898" size="1.778" layer="91">UP</text>
+<text x="62.484" y="70.358" size="1.778" layer="91">DIO</text>
+<text x="62.484" y="67.564" size="1.778" layer="91">CLK</text>
+<text x="62.484" y="29.464" size="1.778" layer="91">D4</text>
+<text x="62.484" y="65.024" size="1.778" layer="91">D13</text>
 </plain>
 <instances>
 <instance part="GND1" gate="1" x="35.56" y="83.82"/>
@@ -8103,7 +8113,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="DIS_1" gate="KON" pin="3"/>
 </segment>
 </net>
-<net name="D10" class="0">
+<net name="DIS1_DIO" class="0">
 <segment>
 <wire x1="25.4" y1="71.12" x2="53.34" y2="71.12" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="71.12" x2="25.4" y2="60.96" width="0.1524" layer="91"/>
@@ -8112,7 +8122,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="DIS_1" gate="KON" pin="4"/>
 </segment>
 </net>
-<net name="D9" class="0">
+<net name="DIS1_CLK" class="0">
 <segment>
 <wire x1="53.34" y1="68.58" x2="27.94" y2="68.58" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="68.58" x2="27.94" y2="58.42" width="0.1524" layer="91"/>
@@ -8121,7 +8131,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="DIS_1" gate="KON" pin="5"/>
 </segment>
 </net>
-<net name="D8" class="0">
+<net name="DIS2_DOWN" class="0">
 <segment>
 <wire x1="53.34" y1="40.64" x2="27.94" y2="40.64" width="0.1524" layer="91"/>
 <wire x1="27.94" y1="40.64" x2="27.94" y2="55.88" width="0.1524" layer="91"/>
@@ -8130,7 +8140,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="DIS_2" gate="KON" pin="2"/>
 </segment>
 </net>
-<net name="D7" class="0">
+<net name="DIS2_UP" class="0">
 <segment>
 <wire x1="53.34" y1="38.1" x2="25.4" y2="38.1" width="0.1524" layer="91"/>
 <wire x1="25.4" y1="38.1" x2="25.4" y2="53.34" width="0.1524" layer="91"/>
@@ -8139,7 +8149,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="DIS_2" gate="KON" pin="3"/>
 </segment>
 </net>
-<net name="D6" class="0">
+<net name="DIS2_DIO" class="0">
 <segment>
 <wire x1="53.34" y1="35.56" x2="22.86" y2="35.56" width="0.1524" layer="91"/>
 <wire x1="22.86" y1="35.56" x2="22.86" y2="50.8" width="0.1524" layer="91"/>
@@ -8148,7 +8158,7 @@ Type: &lt;b&gt;SPC4077 / SPC 4078&lt;/b&gt;&lt;p&gt;</description>
 <pinref part="DIS_2" gate="KON" pin="4"/>
 </segment>
 </net>
-<net name="D5" class="0">
+<net name="DIS2_CLK" class="0">
 <segment>
 <wire x1="20.32" y1="48.26" x2="20.32" y2="33.02" width="0.1524" layer="91"/>
 <wire x1="20.32" y1="33.02" x2="53.34" y2="33.02" width="0.1524" layer="91"/>
