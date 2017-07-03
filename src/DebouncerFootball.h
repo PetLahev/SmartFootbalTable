@@ -20,6 +20,11 @@ public:
   DebouncerFootball();
 
   /**
+  *  Destructor of the class 
+  **/
+  ~DebouncerFootball();
+
+  /**
    * Have this method because I don't know yet how to properly initialize
    * the array in aconstructor (want to do that after the pins are set)
    * @param buttonPins - pins of the UP/DOWN buttons on the display

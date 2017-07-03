@@ -17,7 +17,12 @@ DebouncerFootball::DebouncerFootball() {
 }
 
 void DebouncerFootball::init(int pins[4]) {
-    this->buttonPins = pins;
+    this->buttonPins = new int[sizeOfArray];
+    for(int i = 0; i<sizeOfArray; i++) this->buttonPins[i]= pins[i];
+}
+
+DebouncerFootball::~DebouncerFootball() {
+    if(this->buttonPins) delete[] this->buttonPins;
 }
 
 bool DebouncerFootball::update() {

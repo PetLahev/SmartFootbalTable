@@ -19,8 +19,8 @@ class Score {
 private:
   int score1;
   int score2;
-  uint8_t data1[3];
-  uint8_t data2[3];
+  uint8_t data1[4];
+  uint8_t data2[4];
 
   void changeScore() {
 
@@ -31,15 +31,16 @@ private:
     int digit1 = score1 % 10;
     int digit2 = score2 % 10;
 
-
     data1[0] = disp1.encodeDigit(remind1);
     data2[0] = disp2.encodeDigit(remind2);
     data1[1] = disp1.encodeDigit(digit1);
     data2[1] = disp2.encodeDigit(digit2);
-    data1[2] = disp1.encodeDigit(remind2);
-    data2[2] = disp2.encodeDigit(remind1);
-    data1[3] = disp1.encodeDigit(digit2);
-    data2[3] = disp2.encodeDigit(digit1);
+
+    // swap the result for the other team
+    data1[2] = data2[0];
+    data2[2] = data1[0];
+    data1[3] = data2[1];
+    data2[3] = data1[1];
 
     data1[1] = data1[1]+128;
     data2[1] = data2[1]+128;
@@ -126,21 +127,26 @@ void loop() {
 
   bool hasChanged = deb.update();
   if (hasChanged && deb.resetState())  {
+    Serial.println("RESET state");
     return;
   }
 
   if (hasChanged) {
       switch (deb.getChangedPin()) {
         case BTN_DISP1_UP:
+          Serial.println("GOAL!!! Team 1");
           scoreController.scoreDisplay1(true);
           break;
         case BTN_DISP1_DOWN:
+          Serial.println("LOOSER 1");
           scoreController.scoreDisplay1(false);
           break;
         case BTN_DISP2_UP:
+          Serial.println("GOAL!!! Team 2");
           scoreController.scoreDisplay2(true);
           break;
         case BTN_DISP2_DOWN:
+          Serial.println("LOOSER 2");
           scoreController.scoreDisplay2(false);
           break;
       }
