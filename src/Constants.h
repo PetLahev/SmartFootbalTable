@@ -15,6 +15,13 @@ const uint8_t AHOJ[] = {
   SEG_B | SEG_C | SEG_D | SEG_E                    // J
   };
 
+const uint8_t GOAL[] = {
+    SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G,   // G
+    SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+    SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_G,   // A
+    SEG_E | SEG_F | SEG_D                            // l
+    };
+
 const int BUZZER_PIN = 14;
 
 /*
