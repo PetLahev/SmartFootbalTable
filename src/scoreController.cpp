@@ -200,6 +200,6 @@ void scoreController::gameWonTheme(bool team1Won) {
   tone(BUZZER_PIN, 1700);
   delay(400);
   tone(BUZZER_PIN, 1800);
-  delay(400);
+  delay(600);
   noTone(BUZZER_PIN);
 }

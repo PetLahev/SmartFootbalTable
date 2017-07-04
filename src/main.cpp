@@ -9,6 +9,7 @@
 #include "Constants.h"
 #include "globals.h"
 #include "scoreController.h"
+#include "testButton.h"
 
 scoreController score;
 DebouncerFootball deb;
@@ -78,39 +79,10 @@ void loop() {
   }
 
   if (digitalRead(TEST_BTN) == LOW) {
-
-    /* TODO: move this to standalone file (ino or cpp) and make it working with
-             both displays
-    */
-    tone(A0, 400, 500);
-    /*//delay(200);
-    //noTone(A0);
-
-    blinkLed();
-
-    const int TEST_DELAY = 800;
-    int k;
-    uint8_t data[] = { 0xff, 0xff, 0xff, 0xff };
-    data[0] = 0b01001001;
-    data[1] = disp1.encodeDigit(1);
-    data[2] = disp1.encodeDigit(2);
-    data[3] = disp1.encodeDigit(3);
-
-    for(k = 3; k >= 0; k--) {
-    	disp1.setSegments(data, 1, k);
-    	delay(TEST_DELAY);
-      blinkLed();
-    }
-
-    disp1.showNumberDecEx(0, 2, true);
-
-    tone(A0, 2000);
-    delay(100);
-    tone(A0, 400);
-    delay(100);
-    noTone(A0);
-*/
+    testButton test;
+    test.runTest();    
   }
+
   delay(10);
 }
 
