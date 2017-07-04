@@ -1,5 +1,6 @@
 /*
   Contains all shared constatnts
+  Note: Objects that need to be initialized are in globalsc.pp
 */
 
 #ifndef Constants_h
@@ -16,11 +17,25 @@ const uint8_t AHOJ[] = {
   };
 
 const uint8_t GOAL[] = {
-    SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G,   // G
-    SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
-    SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_G,   // A
-    SEG_E | SEG_F | SEG_D                            // l
-    };
+  SEG_A | SEG_C | SEG_D | SEG_E | SEG_F | SEG_G,   // G
+  SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+  SEG_A | SEG_B | SEG_C | SEG_E | SEG_F | SEG_G,   // A
+  SEG_E | SEG_F | SEG_D                            // l
+  };
+
+const uint8_t COOL[] = {
+  SEG_A | SEG_D | SEG_E | SEG_F,                   // C
+  SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+  SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+  SEG_E | SEG_F | SEG_D                            // L
+  };
+
+const uint8_t DOOH[] = {
+  SEG_B | SEG_C | SEG_D | SEG_E | SEG_G,           // d
+  SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+  SEG_A | SEG_B | SEG_C | SEG_D | SEG_E | SEG_F,   // O
+  SEG_B | SEG_C | SEG_E | SEG_F | SEG_G            // H
+  };
 
 const int BUZZER_PIN = 14;
 
