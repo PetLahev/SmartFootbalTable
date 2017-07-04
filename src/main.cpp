@@ -7,9 +7,9 @@
 #include "main.h"
 #include "DebouncerFootball.h"
 #include "Constants.h"
+#include "globals.h"
 
-TM1637Display disp1(DISP1_CLK, DISP1_DIO);
-TM1637Display disp2(DISP2_CLK, DISP2_DIO);
+
 
 /*
 TODO: Move to standalone class
@@ -77,6 +77,8 @@ public:
     if (up) {
       if (score2 < 99) {
        score2 +=1;
+       disp2.setSegments(GOAL);
+       delay(350);
       }
       else {
         score2 = 0;
