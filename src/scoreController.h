@@ -6,9 +6,26 @@
 
 class scoreController {
 public:
+  /**
+  *  Constructor
+  **/
   scoreController();
+
+  /**
+  *  Updates score for the team 1
+  *  @params up - if the score should increase
+  **/
   void scoreDisplay1(bool up);
+
+  /**
+  *  Updates score for the team 2
+  *  @params up - if the score should increase
+  **/
   void scoreDisplay2(bool up);
+
+  /**
+  *  Resets all internal variables (starts the game from begining)
+  **/
   void reset();
 
 private:
@@ -32,7 +49,9 @@ private:
   void playGoalTone();
   void playLoseTone();
   void resetGame();
-
+  void logGameResult(const char* team);
+  void gameWonTheme(bool team1Won);
+  
   // TODO: How to pass reference to the display?
   void displayGoalText1();
   void displayGoalText2();

@@ -1,3 +1,14 @@
+/**
+*  Responsible for all logic around displaying score on both displays
+*  - Tracking number of goals for both teams
+*  - Tracking number of played games
+*  - Updating displays
+*  - Playing tones
+*  - Displaying messages
+*  TODO: Some of the methods would be more generic if I could
+*        figure out how to pass a display (disp1, disp2) to
+*        a method as a reference
+**/
 
 #include "Constants.h"
 #include "globals.h"
@@ -5,7 +16,6 @@
 #include "scoreController.h"
 
 scoreController::scoreController() {
-   reset();
 }
 
 void scoreController::scoreDisplay1(bool up) {
@@ -20,12 +30,9 @@ void scoreController::scoreDisplay1(bool up) {
   }
 
   if (score1 == goalsPerGame) {
-    Serial.println("Team 1 won the game!");
     gamesWon1 +=1;
-    Serial.print("The score is ");
-    Serial.print(gamesWon1);
-    Serial.print(" : ");
-    Serial.println(gamesWon2);
+    logGameResult("Team 1");
+    gameWonTheme(true);
     resetGame();
   }
 
@@ -44,12 +51,9 @@ void scoreController::scoreDisplay2(bool up) {
   }
 
   if (score2 == goalsPerGame) {
-    Serial.println("Team 2 won the game!");
     gamesWon2 +=1;
-    Serial.print("The score is ");
-    Serial.print(gamesWon1);
-    Serial.print(" : ");
-    Serial.println(gamesWon2);
+    logGameResult("Team 2");
+    gameWonTheme(false);
     resetGame();
   }
 
@@ -57,6 +61,11 @@ void scoreController::scoreDisplay2(bool up) {
 }
 
 void scoreController::reset() {
+
+  tone(BUZZER_PIN, 1500);
+  delay(1000);
+  noTone(BUZZER_PIN);
+
   score1=0;
   score2=0;
   games=0;
@@ -66,7 +75,13 @@ void scoreController::reset() {
     data1[i]= 0;
     data2[i]= 0;
   }
-  displayScore();  
+  displayScore();
+  tone(BUZZER_PIN, 800);
+  delay(300);
+  noTone(BUZZER_PIN);
+  tone(BUZZER_PIN, 600);
+  delay(300);
+  noTone(BUZZER_PIN);
 }
 
 /**
@@ -131,14 +146,23 @@ void scoreController::updateScore(int &score, bool up) {
 
 void scoreController::playGoalTone() {
   tone(BUZZER_PIN, 900);
-  delay(100);
+  delay(600);
   noTone(BUZZER_PIN);
 }
 
 void scoreController::playLoseTone() {
   tone(BUZZER_PIN, 500);
-  delay(100);
+  delay(500);
   noTone(BUZZER_PIN);
+}
+
+void scoreController::logGameResult(const char* team) {
+  Serial.print(team);
+  Serial.println(" won the game!");
+  Serial.print("The score is ");
+  Serial.print(gamesWon1);
+  Serial.print(" : ");
+  Serial.println(gamesWon2);
 }
 
 void scoreController::displayGoalText1() {
@@ -157,4 +181,25 @@ void scoreController::displayGoalText2() {
   delay(300);
   disp2.setSegments(GOAL);
   delay(300);
+}
+
+void scoreController::gameWonTheme(bool team1Won) {
+  if (team1Won) {
+    disp1.setSegments(COOL);
+    disp2.setSegments(DOOH);
+  }
+  else {
+    disp1.setSegments(DOOH);
+    disp2.setSegments(COOL);
+  }
+
+  tone(BUZZER_PIN, 1500);
+  delay(400);
+  tone(BUZZER_PIN, 1600);
+  delay(400);
+  tone(BUZZER_PIN, 1700);
+  delay(400);
+  tone(BUZZER_PIN, 1800);
+  delay(400);
+  noTone(BUZZER_PIN);
 }
